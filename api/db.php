@@ -1,6 +1,5 @@
 <?php
-if((@include "env1.php") === false){
-    echo('Fatal error missing env variables');
+if((@include "env.php") === false){
     $db_host=getenv('db_host');
     $db_name=getenv('db_name');
     $db_user=getenv('db_user');
