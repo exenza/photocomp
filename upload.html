@@ -1,6 +1,11 @@
 <html>
     <head>
         <!-- Latest compiled and minified CSS -->
+<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous"></script>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <!-- Optional theme -->
@@ -8,6 +13,7 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
     <title>
         PhotoComp
     </title>
@@ -16,10 +22,18 @@
     <h2>Upload your pitctures!</h2>
     <hr>
     <h3>Select open competitions:</h3>
-    <select>
+    <select onchange="show(this.value)">
         <option></option>
-        <option>Monhtly competition May 2017</option>
+        <option value="monthly">Monhtly competition May 2017</option>
+        <option value="poty">POTY 2017</option>
     </select>
+    <span id="monthly">
+    <h3>Monhtly competition May 2017</h3>
+    <b>Theme: <br></b> Window light<br>
+    <b>Description: </b><br>A subject of your choice photographed using lighting provided by a window.location.<br>
+    <hr>
+    Entries will be accepted until Sunday 14th 12:00 PM, you have 4 day 20h 4m 12s to entry.
+    <hr>
     <h3>Picture 1</h3>
     <select>
         <option>Picture type</option>
@@ -45,4 +59,37 @@
     </select>
     <button name="file">Choose file...</button><hr>
     <button name="submit" onclick="window.location='review.html'">Submit</button>
+    </span>
+    <span id="poty">
+    <h3>POTY 2017</h3>
+    <b>Theme: <br></b> Free theme<br>
+    <b>Description: </b><br>6 prints of your choice, picture must have been taken between May 2016 and end of May 2017<br>
+    <hr>
+    Entries will be accepted until Sunday 14th 12:00 PM, you have 4 day 20h 4m 12s to entry.
+    <hr>
+    <span id="fields">
+    <script type="text/javascript">
+        
+        var number=1
+    var potyfields
+while(number <= 6){
+    potyfields+='<h3>Picture '+number+'</h3>Title: <input /><button name="file">Choose file...</button><hr>'
+    number++
+}
+document.write(potyfields)
+    </script>
+    <button>Submit</button>
+    </span>
+    </span>
 </html>
+<script>
+
+$("#monthly").css('display', 'none')
+        $("#poty").css('display', 'none')
+    function show(id){
+        $("#monthly").css('display', 'none')
+        $("#poty").css('display', 'none')
+        $('#'+id).css('display', 'inline')
+    }
+    
+</script>
